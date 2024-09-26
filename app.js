@@ -55,9 +55,10 @@ const sessionOptions = {
 };
 
 // basic api
-// app.get("/", async (req, res) => {
-//   res.send("Hey I am root");
-// });
+app.get("/", async (req, res) => {
+  const allListings = await Listing.find({});
+  res.render("listings/index.ejs", { allListings });
+});
 
 app.use(session(sessionOptions));
 app.use(flash());
