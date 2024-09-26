@@ -99,10 +99,7 @@ app.all("*", (req, res, next) => {
 // for error handling
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;
-  res.status(statusCode).render("error.ejs", {
-    message: err.message,
-    error: err
-  });  
+  res.status(statusCode).render("error.ejs", {message});
 });
 
 // database mongoose connection
