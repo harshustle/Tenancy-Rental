@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
-    secret: process.env.secret,
+    secret: process.env.SECRET,
   },
   touchAfter: 24 * 3600,
 });
@@ -76,14 +76,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/demoUser", async (req, res) => {
-  let fakeUser = new User({
-    email: "astav099@gmail.com",
-    username: "arsh",
-  });
-  let registeredUser = await User.register(fakeUser, "password");
-  res.send(registeredUser);
-});
+// app.use("/demoUser", async (req, res) => {
+//   let fakeUser = new User({
+//     email: "astav099@gmail.com",
+//     username: "arsh",
+//   });
+//   let registeredUser = await User.register(fakeUser, "password");
+//   res.send(registeredUser);
+// });
 
 // restructuring listing
 app.use("/listings", listingsRouter);
@@ -102,9 +102,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", {
     message: err.message,
     error: err
-  });
-  res.status(err.status || 500);
-  
+  });  
 });
 
 // database mongoose connection
