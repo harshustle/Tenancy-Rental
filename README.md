@@ -110,4 +110,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 For any inquiries or support, please contact:
 - **Name**: Harsh Srivastav
 - **Email**: hsrivastav099@gmail.com
-- **GitHub**: [@your-username](https://github.com/your-username)
+- **GitHub**: [@harshustle](https://github.com/harshustle)
