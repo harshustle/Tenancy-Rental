@@ -7,6 +7,17 @@ const userController = require("../controllers/users.js");
 
 // router.route
 router
+  .route("/")
+  .get(wrapAsync(listingController.index))
+  .post(
+    isLoggedIn,
+    upload.single("listing[image]"),
+    validatelisting,
+    wrapAsync(listingController.createListing)
+  );
+
+
+router
   .route("/signup")
   .get(userController.signupForm)
   .post(userController.signup);
